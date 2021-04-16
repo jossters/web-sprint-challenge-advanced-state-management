@@ -29,12 +29,10 @@ const reducer = (state = initialState, action)=>{
         return {
             ...state,
             smurfs:[...state.smurfs, {...action.payload, id:Date.now()}],
-            isloading: false
         }
         case ADD_ERROR:
         return {
             ...state,
-            isloading:false,
             error: action.payload,
         }
      default:

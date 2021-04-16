@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import {connect} from "react-redux";
 import { addSmurf, addError } from "../actions"
+
 const AddForm = (props) => {
+    
     const [state, setState] = useState({
         name:"",
         position:"",
@@ -25,8 +27,6 @@ const AddForm = (props) => {
         }
     }
 
-    const errorMessage = "";
-
     return(<section>
         <h2>Add Smurf</h2>
         <form onSubmit={handleSubmit}>
@@ -47,7 +47,7 @@ const AddForm = (props) => {
                 <textarea onChange={handleChange} value={state.description} name="description" id="description" />
             </div>
             {
-                errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {errorMessage}</div>
+                props.error && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {props.error}</div>
             }
             <button>Submit Smurf</button>
         </form>
@@ -55,7 +55,6 @@ const AddForm = (props) => {
 }
 const mapStateToProps = (state) => {
     return{
-      isLoading: state.isLoading,
       smurfs: state.smurfs,
       error:state.error,
     }

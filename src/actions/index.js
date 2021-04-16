@@ -25,8 +25,8 @@ export const fetchSmurfs = () => {
 export const addSmurf = (newSmurf) => {
     return ({ type:ADD_SMURF, payload:newSmurf })
     }
-export const addError = (errorToBeAdded) => {
-        return ({ type: ADD_ERROR, payload:errorToBeAdded })
+export const addError = (error) => {
+        return ({ type: ADD_ERROR, payload:error })
     }    
     
  
